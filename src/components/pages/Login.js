@@ -45,7 +45,7 @@ function Login() {
                       required
                 />
               </div>
-            <button className="btn btn-primary" type="submit" onClick={register}>Register</button>
+            <button className="btn btn-primary" type="submit" onClick={register}>Login</button>
             </form>
             <p className="mt-3">
                 <button>Don't have an account?</button>
