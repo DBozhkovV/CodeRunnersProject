@@ -8,10 +8,10 @@ function Home() {
       <div className="App">
         <Navbar bg="light" expand="lg">
           <Container>
-            <NavbarBrand> <img src={logo} alt = "Code Runners Logo" height = "50" width = "140"/></NavbarBrand> 
+            <NavbarBrand> <img src={logo} alt = "Code Runners Logo" height = "50" width = "200"/></NavbarBrand> 
             <Navbar.Toggle aria-controls="basic-navbar-nav"/>
             <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="justify-content-end" style={{ width: "100%" }}> 
+                <Nav className="justify-content-end" style={{ width: "110%" }}> 
                 <Nav.Link href="http://localhost:3000/login">Log in </Nav.Link>
                 <Nav.Link href="http://localhost:3000/register">Sign up</Nav.Link>
 
