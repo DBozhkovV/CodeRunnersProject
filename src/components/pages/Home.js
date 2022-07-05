@@ -7,6 +7,7 @@ import LoadingSpinner from "./LoadingSpinner";
 
 function Home() {
   const [isLoading, setIsLoading] = useState(true);
+  
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
