@@ -19,7 +19,7 @@ function App() {
           <Route path="/admin" element={<Admin/>} />
           <Route path="/profile" element={<Profile/>} />
           <Route path="/admin" element={<Admin/>} />   
-          <Route path="/table" element={<MyTable/>} />      
+          <Route path="/table/:date" element={<MyTable/>} />      
         </Routes>
       </Layout>
     </BrowserRouter>

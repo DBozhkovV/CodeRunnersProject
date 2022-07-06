@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import data from "./test-data.json";
+import { useParams } from "react-router-dom";
 
-const MyTable = (props) => {
+const MyTable = () => {
+    let params = useParams();
+
     const [contacts, setContacts] = useState(data);
+    console.log(params);
 
   return(
     <div className="app-container">
