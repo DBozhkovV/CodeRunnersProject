@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Calendar from "react-calendar";
 import { useNavigate } from "react-router-dom";
-import MyTable from "./MyTable";
 // date.getDate() - vrushta datata - 22
 
 const MyCalendar = () => {
@@ -20,9 +19,6 @@ const MyCalendar = () => {
       datem = '0' + datem;
     }
     navigate("/table/" + dated + '-' + datem + '-' + datey);
-    var myTableDate = dated + '-' + datem + '-' + datey;
-    
-
   }
   
 
