@@ -31,3 +31,10 @@ C:\Users\zhele\Documents\GitHub\CodeRunnersProject\ProjectAPI\ProjectAPI\obj\Deb
 C:\Users\zhele\Documents\GitHub\CodeRunnersProject\ProjectAPI\ProjectAPI\obj\Debug\net6.0\ProjectAPI.pdb
 C:\Users\zhele\Documents\GitHub\CodeRunnersProject\ProjectAPI\ProjectAPI\obj\Debug\net6.0\ProjectAPI.genruntimeconfig.cache
 C:\Users\zhele\Documents\GitHub\CodeRunnersProject\ProjectAPI\ProjectAPI\obj\Debug\net6.0\ref\ProjectAPI.dll
+C:\Users\zhele\Documents\GitHub\CodeRunnersProject\ProjectAPI\ProjectAPI\bin\Debug\net6.0\Npgsql.dll
+C:\Users\zhele\Documents\GitHub\CodeRunnersProject\ProjectAPI\ProjectAPI\bin\Debug\net6.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\zhele\Documents\GitHub\CodeRunnersProject\ProjectAPI\ProjectAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\zhele\Documents\GitHub\CodeRunnersProject\ProjectAPI\ProjectAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\zhele\Documents\GitHub\CodeRunnersProject\ProjectAPI\ProjectAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\zhele\Documents\GitHub\CodeRunnersProject\ProjectAPI\ProjectAPI\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\zhele\Documents\GitHub\CodeRunnersProject\ProjectAPI\ProjectAPI\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
