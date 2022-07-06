@@ -21,7 +21,7 @@ const MyCalendar = () => {
     }
     navigate("/table" + "?="+ dated + datem + datey);
     var myTableDate = dated + datem + datey;
-    console.log(myTableDate);
+
   }
   
 
