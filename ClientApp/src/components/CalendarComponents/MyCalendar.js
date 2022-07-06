@@ -10,9 +10,17 @@ const MyCalendar = () => {
 
   const onChange = date => {
     setDate(date);
+    var dated = date.getDate();
     var datey = date.getYear() + 1900;
-    navigate("/table" + "?="+ date.getDate() + date.getMonth() + datey);
-    var myTableDate = date.getDate() + date.getMonth() + datey
+    var datem = date.getMonth() + 1;
+    if(dated < 10){
+      dated = '0' + dated;
+    }
+    if(datem < 10){
+      datem = '0' + datem;
+    }
+    navigate("/table" + "?="+ dated + datem + datey);
+    var myTableDate = dated + datem + datey;
     console.log(myTableDate);
   }
   
