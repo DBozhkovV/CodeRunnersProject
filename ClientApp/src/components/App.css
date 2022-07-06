@@ -41,7 +41,9 @@
 .bgi {
   background-image: 
   url("https://www.code-runners.com/wp-content/uploads/sites/6/2016/01/IMG_6952-e1502377437374.jpg");
-  background-size: "cover";
-  height: 100vh;
+  background-attachment: fixed;
+  background-size:cover;
+  background-repeat: no-repeat;
+  height:100vh;
 
 }
