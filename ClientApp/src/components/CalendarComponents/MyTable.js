@@ -1,13 +1,17 @@
 import React, { useState } from "react";
+import {useEffect} from 'react';
 import data from "./test-data.json";
 import { useParams } from "react-router-dom";
 
 const MyTable = () => {
     let params = useParams();
+    var par = params.date;
 
     const [contacts, setContacts] = useState(data);
-    console.log(params);
 
+
+
+    
   return(
     <div className="app-container">
         <table>
@@ -19,11 +23,11 @@ const MyTable = () => {
                 </tr>
             </thead>
             <tbody>
-                {contacts.map((contact) => (
-                    <tr key={contact.id}>
-                        <td>{contact.name}</td>
-                        <td>{contact.firstName}</td>
-                        <td>{contact.date}</td>
+                {contacts.filter(contact => contact.date == par).map((contact) => (
+                   <tr key={contact.id}>
+                            <td>{contact.name}</td>
+                            <td>{contact.firstName}</td>
+                            <td>{contact.date}</td>
                     </tr>
                 ))}
             </tbody>
