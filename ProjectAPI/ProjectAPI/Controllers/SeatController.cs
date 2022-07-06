@@ -48,5 +48,22 @@ namespace ProjectAPI.Controllers
 
             return Ok(testData);
         }
+
+        [HttpPut]
+        public IActionResult Update(UpdateSeatModel_DTO seat)
+        {
+            var testData = _DbContext.Seats.Single(x => x.Id == seat.Id);
+
+            testData.Name = seat.Name;
+            testData.Color = seat.Color;
+
+            _DbContext.Seats.Update(testData);
+            _DbContext.SaveChanges();
+
+            // _db update
+            // _db save chan
+
+            return Ok();
+        }
     }
 }
