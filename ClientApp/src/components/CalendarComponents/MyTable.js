@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import data from "./test-data.json";
 
-const MyTable = () => {
-
+const MyTable = (props) => {
     const [contacts, setContacts] = useState(data);
 
   return(
@@ -27,6 +26,6 @@ const MyTable = () => {
         </table>
     </div>
   );
-}
 
+}
 export default MyTable;
