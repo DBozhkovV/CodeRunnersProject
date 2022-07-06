@@ -8,7 +8,7 @@ function Profile()
         <div className={classes.background}>
             <div className = {classes.card}>
                 <div className = {classes.content}>
-                    <img className = {classes.photo} src={photo} alt = "Profile picture"></img>
+                    <img className = {classes.photo} src={photo} alt = "Profile pic"></img>
                     <div className = {classes.field}>
                         <h2><b>Name</b></h2>
                         <h4>Georgi Petrov</h4>
