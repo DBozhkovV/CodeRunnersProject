@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './components/pages/Home';
 import Layout from './components/hocs/Layout';
@@ -7,12 +7,8 @@ import Register from "./components/pages/Register";
 import Admin from "./components/pages/Admin";
 import Profile from "./components/pages/Profile";
 
-
-
-
 function App() {
   return (
-
     <BrowserRouter>
       <Layout>
         <Routes>
