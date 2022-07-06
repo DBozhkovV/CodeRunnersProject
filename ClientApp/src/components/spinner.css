@@ -24,3 +24,18 @@
     align-items: center;
     height: 600px;
   }
+
+  .imgStyle1 {
+    display: 'block';
+    margin: 'auto';
+    margin-top : '50%';
+    width: '50%';
+  }
+  
+  .imgStyle {
+    display: 'block';
+    margin-left: 135px;
+    margin-bottom: 100px;
+    width: 300px;
+    height: auto;
+  }

@@ -14,32 +14,29 @@ function Home() {
     }, 3000);
     return () => clearTimeout(timer);
   }, []);
+
   const nav = (
-
-    <div className="App">
-            <Navbar bg="light" expand="lg">
-              <Container>
-                <NavbarBrand> <img src={logo} alt = "Code Runners Logo" height = "50" width = "200"/></NavbarBrand> 
-                <Navbar.Toggle aria-controls="basic-navbar-nav"/>
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="justify-content-end" style={{ width: "110%" }}> 
-                    <Nav.Link href="http://localhost:3000/login">Log in </Nav.Link>
-                    <Nav.Link href="http://localhost:3000/register">Sign up</Nav.Link>
-
-                  </Nav>
-                </Navbar.Collapse>
-              </Container>
-            </Navbar>
-            <img src="https://www.code-runners.com/wp-content/uploads/sites/6/2016/01/IMG_6952-e1502377437374.jpg" alt="Background" height = '900px' width = '100%'/>
-          </div>
+    <div className='bgi'>
+      <Navbar bg="light" expand="lg">
+        <Container>
+          <NavbarBrand> <img src={logo} alt = "Code Runners Logo" height = "50" width = "200"/></NavbarBrand> 
+            <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="justify-content-end" style={{ width: "110%" }}> 
+                <Nav.Link href="http://localhost:3000/login">Log in </Nav.Link>
+                <Nav.Link href="http://localhost:3000/register">Sign up</Nav.Link>
+              </Nav>
+            </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </div>
   );
   
   return (
-    <div className="App">
+    <div className="App" >
       {isLoading ? <LoadingSpinner /> : nav}
     </div>
-    
-      
     );
   }
+
 export default Home;
