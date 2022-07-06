@@ -3,7 +3,7 @@ import {useState} from 'react';
 import '../App.css';
 import logo from '../images/coderunners.png'
 import { Navbar,Nav,Container,NavbarBrand} from 'react-bootstrap';
-import LoadingSpinner from "./LoadingSpinner";
+import LoadingSpinner from "../LoadingScreen/LoadingSpinner";
 import MyCalendar from '../CalendarComponents/MyCalendar';
 
 function Home() {

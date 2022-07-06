@@ -1,5 +1,5 @@
 import React from "react";
-import "../spinner.css";
+import "./spinner.css";
 import logo from '../images/coderunners.png'
 import loading from '../images/loading.png'
 
