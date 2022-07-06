@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProjectAPI.Context;
 using ProjectAPI.Data.Models;
+using ProjectAPI.Models;
 
 namespace ProjectAPI.Controllers
 {
@@ -15,23 +16,37 @@ namespace ProjectAPI.Controllers
             _DbContext = testDBContext;
         }
 
-        [HttpGet("{id}")]
-        public IActionResult Get()
+        [HttpPost]
+        public IActionResult Create(AddSeatModel_DTO seat)
         {
-            var testData = _DbContext.Seats.Single(x => x.Name == "name 1");
-            // db.Seats.
-            var test = new Seat
+            var newSeat = new Seat()
             {
-                Id = 1,
-                Name = "name 1"
+                Name = seat.Name,
+                Color = seat.Color
             };
 
-            return Ok(test);
+            _DbContext.Seats.Add(newSeat);
+            _DbContext.SaveChanges();
+
+            return Ok();
         }
 
-        public IActionResult Index()
+        [HttpGet("{Id:int}")]
+        //.../Seat/1
+        public IActionResult Get(int Id)
         {
-            return View();
+            var testData = _DbContext.Seats.Single(x => x.Id == Id);
+
+            return Ok(testData);
+        }
+
+        [HttpGet]
+        //.../Seat/1
+        public IActionResult Get()
+        {
+            var testData = _DbContext.Seats.ToList();
+
+            return Ok(testData);
         }
     }
 }

@@ -1097,24 +1097,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\zhele\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Gesha\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\zhele\\Documents\\GitHub\\CodeRunnersProject\\ProjectAPI\\ProjectAPI\\ProjectAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Gesha\\Documents\\GitHub\\CodeRunnersProject\\ProjectAPI\\ProjectAPI\\ProjectAPI.csproj",
       "projectName": "ProjectAPI",
-      "projectPath": "C:\\Users\\zhele\\Documents\\GitHub\\CodeRunnersProject\\ProjectAPI\\ProjectAPI\\ProjectAPI.csproj",
-      "packagesPath": "C:\\Users\\zhele\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\zhele\\Documents\\GitHub\\CodeRunnersProject\\ProjectAPI\\ProjectAPI\\obj\\",
+      "projectPath": "C:\\Users\\Gesha\\Documents\\GitHub\\CodeRunnersProject\\ProjectAPI\\ProjectAPI\\ProjectAPI.csproj",
+      "packagesPath": "C:\\Users\\Gesha\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Gesha\\Documents\\GitHub\\CodeRunnersProject\\ProjectAPI\\ProjectAPI\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\zhele\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Gesha\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
