@@ -20,7 +20,7 @@
 //            context.Seats.Add(new Seat
 //            {
 //                Id = 0,
-//                name = "Gay",
+//                Name = "Gay",
 //                Color  = "Gay"
 //            });
 

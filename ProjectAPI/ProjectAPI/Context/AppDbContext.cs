@@ -5,7 +5,7 @@ using ProjectAPI.Data.Models;
 
 namespace ProjectAPI.Context
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<User>
     {
         public AppDbContext(DbContextOptions options)
             : base(options)
@@ -13,6 +13,7 @@ namespace ProjectAPI.Context
 
         }
         public DbSet<Seat> Seats { get; set; } = default!;
-        //public DbSet<User> Users { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
+
     }
 }
