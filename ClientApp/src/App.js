@@ -4,9 +4,11 @@ import Home from './components/pages/Home';
 import Layout from './components/hocs/Layout';
 import Login from "./components/pages/Login";
 import Register from "./components/pages/Register";
-import Admin from "./components/pages/Admin";
+import Admin from "./components/pages/adminComponents/Admin";
 import Profile from "./components/ProfileComponents/Profile";
-import MyTable from "./components/CalendarComponents/MyTable";
+import MyTable from "./components/userComponents/MyTable";
+import AdminSelection from "./components/pages/adminComponents/AdminSelection";
+import UserTable from "./components/pages/adminComponents/UserTable";
 
 function App() {
   return (
@@ -18,7 +20,9 @@ function App() {
           <Route path="/register" element={<Register/>} />
           <Route path="/admin" element={<Admin/>} />
           <Route path="/profile" element={<Profile/>} />
-          <Route path="/admin" element={<Admin/>} />   
+          <Route path="/admin" element={<Admin/>} />
+          <Route path="/admin/selection" element={<AdminSelection />} />
+          <Route path="/admin/userTable" element={<UserTable/>} /> 
           <Route path="/table/:date" element={<MyTable/>} />      
         </Routes>
       </Layout>
