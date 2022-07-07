@@ -1,13 +1,27 @@
-import React, { useState } from "react";
-import data from "./test-data.json";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import axios from 'axios';
 
 const MyTable = () => {
     let params = useParams();
-    var par = params.date;
+    // var par = params.date;
 
-    const [contacts, setContacts] = useState(data);
+    const [seats, setSeats] = useState([]);
     
+    useEffect(() => {
+        const getSeats = async () => {
+            axios.get('https://localhost:7031/Seat')
+                .then(response => {
+                    setSeats(response.data)
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+        }
+        getSeats();
+    }, []);
+
+
   return(
     <div className="app-container">
         <table>
@@ -19,11 +33,11 @@ const MyTable = () => {
                 </tr>
             </thead>
             <tbody>
-                {contacts.filter(contact => contact.date === par).map((contact) => (
-                   <tr key={contact.id}>
-                            <td>{contact.name}</td>
-                            <td>{contact.firstName}</td>
-                            <td>{contact.date}</td>
+                {seats.map((seat) => (
+                   <tr key={seat.id}>
+                            <td>{seat.name}</td>
+                            <td>{seat.color}</td>
+                            {/* <td>{seat.date}</td> */}
                     </tr>
                 ))}
             </tbody>
