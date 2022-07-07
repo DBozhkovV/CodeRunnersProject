@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from 'axios';
+import '../App.css'
 
 const MyTable = () => {
     let params = useParams();
-    // var par = params.date;
+     var par = params.date;
 
     const [seats, setSeats] = useState([]);
     
@@ -24,6 +25,11 @@ const MyTable = () => {
 
   return(
     <div className="app-container">
+        <body>Chosen date: {par}</body> 
+        <body>
+        <button class="button button1">prev date</button>
+        <button class="button button1">next date</button>
+        </body>
         <table>
             <thead>
                 <tr>
