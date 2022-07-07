@@ -19,7 +19,7 @@ const MyCalendar = () => {
     if(datem < 10){
       datem = '0' + datem;
     }
-    navigate("/table/" + dated + '-' + datem + '-' + datey);
+    navigate("/table/" + datem + '-' + dated + '-' + datey);
   }
   
 
