@@ -13,7 +13,7 @@ const AdminSelection = () => {
             <MDBCardTitle>Choose table</MDBCardTitle>
             <div className="flex-row">
               <a href="/admin/userTable">Users</a>
-              <a href="#!" style={{ marginLeft: "1.25rem" }}>Desks</a>
+              <a href="/admin/seatTable" style={{ marginLeft: "1.25rem" }}>Desks</a>
             </div>
           </MDBCard>
         </MDBContainer>

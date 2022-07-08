@@ -9,6 +9,7 @@ import Profile from "./components/ProfileComponents/Profile";
 import MyTable from "./components/CalendarComponents/MyTable";
 import AdminSelection from "./components/pages/adminComponents/AdminSelection";
 import UserTable from "./components/pages/adminComponents/UserTable";
+import SeatTable from "./components/pages/adminComponents/SeatTable";
 
 function App() {
   return (
@@ -22,7 +23,8 @@ function App() {
           <Route path="/profile" element={<Profile/>} />
           <Route path="/admin" element={<Admin/>} />
           <Route path="/admin/selection" element={<AdminSelection />} />
-          <Route path="/admin/userTable" element={<UserTable/>} /> 
+          <Route path="/admin/userTable" element={<UserTable/>} />
+          <Route path="/admin/seatTable" element={<SeatTable/>} /> 
           <Route path="/table/:date" element={<MyTable/>} />      
         </Routes>
       </Layout>
