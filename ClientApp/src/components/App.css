@@ -108,6 +108,21 @@ td {
   right: 0;
 }
 
+.buttonsmall {
+  background-color: rgb(117, 201, 250); 
+  border-radius: 5px;
+  border-color: black;
+  color: white;
+  padding: 16px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  width: 100px;
+  overflow: hidden;
+}
 
 .button {
   background-color: rgb(117, 201, 250); 
