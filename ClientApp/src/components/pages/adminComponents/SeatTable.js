@@ -10,7 +10,7 @@ const SeatTable = () => {
     const [seats, setSeats] = useState([]);
     const [RemoveShow, setRemoveShow] = useState(false);
     const [AddShow, setAddShow] = useState(false);
-
+    let deskId = 0;    
     useEffect(() => {
         const getSeats = async () => {
             axios.get(`https://localhost:7031/Seat`)
@@ -50,11 +50,15 @@ const SeatTable = () => {
                         <td>{seat.name}</td>
                         <td>{seat.color}</td>
                         <td>
-                            <button type="button" onClick={() => setRemoveShow(true)}>Remove</button>
-                            <ActionRemove id = {seat.id} show={RemoveShow} onHide={() => setRemoveShow(false)}/>
+                            <button type="button" onClick={() => {
+                                setRemoveShow(true);
+                                deskId = seat.id       
+                            }
+                            }>Remove</button>
                         </td>
                     </tr>
                 ))}
+                <ActionRemove id = {deskId} show={RemoveShow} onHide={() => setRemoveShow(false)}/>
             </tbody>
         </table>
     </div>
