@@ -21,9 +21,9 @@ function Success()
                 ></script>
             </Helmet>
             <div className = {classes.success}>
-                <h1 className = {classes.text}>You have been registered successfully!</h1>
-                {isSecondLottieLoaded && <lottie-player className={classes.lottie} src="https://assets8.lottiefiles.com/packages/lf20_bhths1ye.json"  background="transparent"  speed="1"  style={{width: "400px", height: "400px"}}  autoplay></lottie-player>}
-                {!isSecondLottieLoaded && <lottie-player className={classes.lottie} src="https://assets1.lottiefiles.com/packages/lf20_y9jgwjuc.json"  background="transparent"  speed="0.7"  style={{width: "350px", height: "400px"}} autoplay></lottie-player>}
+                <h1>You have been registered successfully!</h1>
+                {isSecondLottieLoaded && <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_bhths1ye.json"  background="transparent"  speed="1"  style={{width: "400px", height: "400px"}}  autoplay></lottie-player>}
+                {!isSecondLottieLoaded && <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_y9jgwjuc.json"  background="transparent"  speed="0.7"  style={{width: "350px", height: "400px"}} autoplay></lottie-player>}
             </div>
         </div>
     ) 

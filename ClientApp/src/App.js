@@ -4,7 +4,6 @@ import Home from './components/pages/Home';
 import Layout from './components/hocs/Layout';
 import Login from "./components/pages/Login";
 import Register from "./components/pages/Register";
-import Profile from "./components/pages/Profile";
 import Success from "./components/pages/Success";
 import Admin from "./components/pages/adminComponents/Admin";
 import Profile from "./components/ProfileComponents/Profile";
