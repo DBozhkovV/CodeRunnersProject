@@ -63,6 +63,11 @@ const MyTable = () => {
         window.location.reload();
     }
 
+    const navHome = () => {
+        navigate("/");
+        window.location.reload();
+    }
+
   return(
     <div className="app-container">
         <div className="app-back">
@@ -71,6 +76,7 @@ const MyTable = () => {
         <div className="app-back">
         <button className="button button1" onClick={prevDateChange}>Previous date</button>
         <button className="button button1" onClick={nextDateChange}>Next date</button>
+        <button className="rightbutton button1" onClick={navHome}>Go Back</button>
         </div>
         <table>
             <thead>
