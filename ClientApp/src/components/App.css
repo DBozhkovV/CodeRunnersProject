@@ -45,3 +45,94 @@
   background-repeat: no-repeat;
   height:100vh;
 }
+
+.react-calendar {
+  margin: 300px;
+  margin-left: 800px;
+  width: 500px;
+}
+
+.app-back{
+  background-color: #f1f1f1;
+}
+.app-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 1rem;
+  background-color: #f1f1f1;
+  height: 920px;
+  overflow: auto;
+  /* margin: 20px; */
+  margin-bottom: 30px;
+  text-align: justify;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid #ffffff;
+  text-align: left;
+  padding: 8px;
+  font-size: 32px;
+}
+
+th {
+  background-color: rgb(117, 201, 250);
+}
+
+td {
+  background-color: rgb(205, 235, 253);
+}
+
+.rightbutton {
+  background-color: rgb(117, 201, 250); 
+  border-radius: 5px;
+  border-color: black;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 16px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  width: 500px;
+  overflow: hidden;
+  position: absolute; 
+  right: 0;
+}
+
+
+.button {
+  background-color: rgb(117, 201, 250); 
+  border-radius: 5px;
+  border-color: black;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  width: 500px;
+  overflow: hidden;
+}
+
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid rgb(117, 201, 250);
+}
+.button1:hover {
+  background-color: rgb(117, 201, 250);
+  color: white;
+}
+
