@@ -51,7 +51,7 @@ const SeatTable = () => {
                         <td>{seat.name}</td>
                         <td>{seat.color}</td>
                         <td>
-                            <button type="button" onClick={() => {
+                            <button className="buttonsmall" onClick={() => {
                                 setRemoveShow(true);
                                 setIdRemove(seat.id);       
                             }
