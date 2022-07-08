@@ -9,6 +9,8 @@ function ActionRemove(props){
             .catch(error => {
                 console.log(error)
             })
+        props.onHide();
+        window.location.reload();
     }
 
     return (
