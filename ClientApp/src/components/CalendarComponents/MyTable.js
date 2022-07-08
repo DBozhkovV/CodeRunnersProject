@@ -17,21 +17,23 @@ const MyTable = () => {
     var nextDate = new Date(currentday);
     nextDate.setDate(nextDate.getDate() + 1);
 
-    const [seats, setSeats] = useState([]);
+    const [bookings, setBookings] = useState([]);
     
     useEffect(() => {
-        const getSeats = async () => {
-            axios.get('https://localhost:7031/Seat')
+        console.log(par);
+
+        const getBookings = async () => {
+            axios.get(`https://localhost:7031/Booking/${par}`)
                 .then(response => {
-                    setSeats(response.data)
+                    setBookings(response.data)
+                    console.log(response.data);
                 })
                 .catch(error => {
                     console.log(error)
                 })
         }
-        getSeats();
+        getBookings();
     }, []);
-
 
     const prevDateChange = () => {
         var dated = prevDate.getDate();
@@ -44,6 +46,7 @@ const MyTable = () => {
           datem = '0' + datem;
         }
         navigate("/table/" + datem + '-' + dated + '-' + datey);
+        window.location.reload();
     }
 
     const nextDateChange = () => {
@@ -57,37 +60,40 @@ const MyTable = () => {
           datem = '0' + datem;
         }
         navigate("/table/" + datem + '-' + dated + '-' + datey);
+        window.location.reload();
     }
 
   return(
     <div className="app-container">
-        <body className="app-back">
-            <button class="button" >Chosen date: {par}</button>
-        </body> 
-        <body className="app-back">
-        <button class="button button1" onClick={prevDateChange}>Previous date</button>
-        <button class="button button1" onClick={nextDateChange}>Next date</button>
-        </body>
+        <div className="app-back">
+            <button className="button" >Chosen date: {par}</button>
+        </div> 
+        <div className="app-back">
+        <button className="button button1" onClick={prevDateChange}>Previous date</button>
+        <button className="button button1" onClick={nextDateChange}>Next date</button>
+        </div>
         <table>
             <thead>
                 <tr>
                     <th>Desk number</th>
                     <th>Name</th>
                     <th>Date</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                {seats.map((seat) => (
-                   <tr key={seat.id}>
-                            <td>{seat.name}</td>
-                            <td>{seat.color}</td>
-                            {/* <td>{seat.date}</td> */}
+                {bookings.map((booking) => (
+                   <tr key={booking.id}>
+                        <td>{booking.name}</td>
+                        <td>{booking.color}</td>
+                        <td>Vreme</td>
+                        <td><button type="button">Get</button> </td>
                     </tr>
                 ))}
             </tbody>
         </table>
     </div>
   );
-
 }
+
 export default MyTable;

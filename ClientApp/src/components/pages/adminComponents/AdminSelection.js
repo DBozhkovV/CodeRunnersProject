@@ -1,5 +1,5 @@
 import React from "react";
-import { MDBCard, MDBCardTitle, MDBCardText, MDBContainer } from "mdbreact";
+import { MDBCard, MDBCardTitle, MDBContainer } from "mdbreact";
 
 const AdminSelection = () => {
     return (

@@ -4,7 +4,7 @@ import '../App.css';
 import logo from '../images/coderunners.png'
 import { Navbar,Nav,Container,NavbarBrand} from 'react-bootstrap';
 import LoadingSpinner from "../LoadingScreen/LoadingSpinner";
-import MyCalendar from '../userComponents/MyCalendar';
+import MyCalendar from '../CalendarComponents/MyCalendar';
 
 function Home() {
   const [isLoading, setIsLoading] = useState(true);

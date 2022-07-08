@@ -6,7 +6,7 @@ import Login from "./components/pages/Login";
 import Register from "./components/pages/Register";
 import Admin from "./components/pages/adminComponents/Admin";
 import Profile from "./components/ProfileComponents/Profile";
-import MyTable from "./components/userComponents/MyTable";
+import MyTable from "./components/CalendarComponents/MyTable";
 import AdminSelection from "./components/pages/adminComponents/AdminSelection";
 import UserTable from "./components/pages/adminComponents/UserTable";
 
