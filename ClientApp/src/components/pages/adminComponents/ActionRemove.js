@@ -1,25 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Modal from "react-bootstrap/Modal";
 import { Button, ModalTitle} from 'react-bootstrap';
 import axios from 'axios';
 
-function ActionRemove(show){
-    const [seat, setSeat] = useState([]);
+function ActionRemove(props){
     const DeleteSeat = async () => {
-        console.log(show.id);
-        axios.delete(`https://localhost:7031/Seat/${show.id}`)
-            .then(response => {
-                setSeat(response.data)
-            })
+        axios.delete(`https://localhost:7031/Seat/${props.id}`)
             .catch(error => {
                 console.log(error)
             })
     }
-    
 
     return (
         <Modal
-            {...show}
+            {...props}
             size="lg"
             centered
         >
@@ -32,7 +26,7 @@ function ActionRemove(show){
             <Button className="form-input-btn" type='submit' onClick={DeleteSeat}>
                 Yes
             </Button>
-                <Button onClick={show.onHide}>No</Button>
+                <Button onClick={props.onHide}>No</Button>
             </Modal.Footer>
         </Modal>
     )

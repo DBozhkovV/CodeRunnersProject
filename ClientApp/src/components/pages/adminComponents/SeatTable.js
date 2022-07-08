@@ -2,10 +2,14 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import '../../App.css'; 
 import ActionRemove from "./ActionRemove";
+import { useNavigate } from "react-router-dom";
+import ActionAdd from "./ActionAdd";
 
 const SeatTable = () => {
+    const navigate = useNavigate();
     const [seats, setSeats] = useState([]);
     const [RemoveShow, setRemoveShow] = useState(false);
+    const [AddShow, setAddShow] = useState(false);
 
     useEffect(() => {
         const getSeats = async () => {
@@ -20,9 +24,19 @@ const SeatTable = () => {
         getSeats();
     }, []);
 
+    const navSelection = () => {
+        navigate("/admin/selection");
+        window.location.reload();
+    }
+
   return(
     <div className="app-container">
-        <table>
+        <div className="app-back">
+            <button className="button button1" onClick={navSelection}>Go Back</button>
+            <button className="rightbutton button1" onClick={() => setAddShow(true)}>Add</button>
+                <ActionAdd show={AddShow} onHide={() => setAddShow(false)}/>
+        </div>
+        <table className="seatTable">
             <thead>
                 <tr>
                     <th>Desk number</th>
@@ -37,7 +51,7 @@ const SeatTable = () => {
                         <td>{seat.color}</td>
                         <td>
                             <button type="button" onClick={() => setRemoveShow(true)}>Remove</button>
-                            <ActionRemove id={seat.id} show={RemoveShow} onHide={() => setRemoveShow(false)}/>
+                            <ActionRemove id = {seat.id} show={RemoveShow} onHide={() => setRemoveShow(false)}/>
                         </td>
                     </tr>
                 ))}
