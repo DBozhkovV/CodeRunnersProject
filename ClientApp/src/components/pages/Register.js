@@ -10,11 +10,6 @@ function Register() {
     const password = useRef();
     const rePassword = useRef();
     const email = useRef();
-    /*const [firstName, setFirstName] = useState(0);
-    const [lastName, setLastName] = useState(0);
-    const [password, setPassword] = useState(0);
-    const [rePassword, setRePassword] = useState(0);
-    const [email, setEmail] = useState(0);*/
 
     const register = (event) => {
        
@@ -36,10 +31,9 @@ function Register() {
             }),
             mode: 'cors'   
         };     
-        
+
         console.log(requestOptions);
     }
-
 
     return(
         <div className="container mt-5">
