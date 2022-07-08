@@ -9,7 +9,7 @@ function Success()
 
     useEffect(() => 
     {
-        const timer = setTimeout(() => setSecondLottieLoaed(true), 3000);
+        setTimeout(() => setSecondLottieLoaed(true), 3000);
     }, []);
 
     return(
