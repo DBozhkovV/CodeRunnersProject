@@ -1,22 +1,23 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom'
+import axios from 'axios';
 
 function Login() {
     const [password, setPassword] = useState(0);
     const [email, setEmail] = useState(0);
+    const [result, setResult] = useState();
 
     const register = () => {
         console.log(email);
-        
-        const requestOptions = {
-            method: 'POST', headers: { 'Content-Type': 'application/json' }, 
-            body: JSON.stringify({
-                password: password,
-                email: email
-            }),
-            mode: 'cors'   
-        };     
-        console.log(requestOptions);
+        console.log(password);
+        axios.post(`https://localhost:7031/controller`, {email, password})
+            .then(response => {
+                setResult(response)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+        console.log(result);
     }
 
 

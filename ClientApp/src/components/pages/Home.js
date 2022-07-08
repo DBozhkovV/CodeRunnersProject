@@ -25,7 +25,7 @@ function Home() {
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="justify-content-end" style={{ width: "110%" }}> 
                 <Nav.Link href="http://localhost:3000/login">Log in </Nav.Link>
-                <Nav.Link href="http://localhost:3000/register">Sign up</Nav.Link>
+                <Nav.Link href="http://localhost:3000/admin">Admin</Nav.Link>
               </Nav>
             </Navbar.Collapse>
         </Container>

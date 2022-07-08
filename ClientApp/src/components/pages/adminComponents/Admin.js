@@ -1,24 +1,24 @@
 import React, { useState } from "react";
+import axios from 'axios';
 
 function Admin() {
     const [password, setPassword] = useState(0);
     const [email, setEmail] = useState(0);
+    const [result, setResult] = useState();
 
-    const register = () => {
+    const SignInAdmin = async () => {
         console.log(email);
-        
-        const requestOptions = {
-            method: 'POST', headers: { 'Content-Type': 'application/json' }, 
-            body: JSON.stringify({
-                password: password,
-                email: email
-            }),
-            mode: 'cors'   
-        };     
-        console.log(requestOptions);
+        console.log(password);
+        axios.post(`https://localhost:7031/controller`, {email, password})
+            .then(response => {
+                setResult(response.data)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+            console.log(result);
     }
-
-
+    
     return(
         <div className="container mt-5">
             <h1>Sign in</h1>
@@ -45,7 +45,7 @@ function Admin() {
                       required
                 />
               </div>
-            <button className="btn btn-primary" type="submit" onClick={register}>Sign in</button>
+            <button className="btn btn-primary" onClick={SignInAdmin}>Sign in</button>
             </form>
         </div>
     );
