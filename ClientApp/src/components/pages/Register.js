@@ -1,9 +1,12 @@
 import React, { useState, useRef,useEffect } from "react";
+import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 
 
 function Register() {
-
+    const navigate = useNavigate();
+    const [result, setResult] = useState();
     const [pass, setPassword] = useState('');
     const [cPassword, setCPassword] = useState('');
     const [showErrorMessage, setShowErrorMessage] = useState(false);
@@ -12,10 +15,9 @@ function Register() {
     const [isCPasswordDirty, setIsCPasswordDirty] = useState(false);
 
     const firstName = useRef();
-    const lastName = useRef();
-    const password = useRef();
+    const passwordField = useRef();
     const rePassword = useRef();
-    const email = useRef();
+    const emailField = useRef();
 
     const handleCPassword = (e) => {
         setCPassword(e.target.value);
@@ -46,28 +48,24 @@ function Register() {
     const register = (event) => {
        
         event.preventDefault();
-        const enteredFirstName = firstName.current.value;
-        const enteredlastName = lastName.current.value;
-        const enteredEmail = email.current.value;
-        const enteredPassword = password.current.value;
-        const enteredRePassword = rePassword.current.value;
+        const name = firstName.current.value;
+        const email = emailField.current.value;
+        const password = passwordField.current.value;
 
-        const requestOptions = {
-            method: 'POST', headers: { 'Content-Type': 'application/json' }, 
-            body: JSON.stringify({
-                firstName: enteredFirstName, 
-                lastName: enteredlastName,
-                password: enteredPassword,
-                rePassword: enteredRePassword,
-                email: enteredEmail
-            }),
-            mode: 'cors'   
-        };     
 
-        console.log(requestOptions);
+        setResult(0);
 
-        firstName.current.value = lastName.current.value = email.current.value = password.current.value = rePassword.current.value = "";
-    
+        axios.post(`https://localhost:7031/Register`,{email,password,name})
+        .then(response => {
+            setResult(response.status)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+           
+        console.log(result);
+        navigate("/success");
+        window.location.reload();
     }
 
     return(
@@ -80,19 +78,9 @@ function Register() {
                 <input 
                     className="form-control"
                     type="firstName"
-                    placeholder="Enter first name"
+                    placeholder="Enter username"
                     name="firstName"
                     ref = {firstName}
-                    required
-                />
-              </div>
-              <div className="form-group">
-                <input 
-                    className="form-control"
-                    type="lastName"
-                    placeholder="Enter last name"
-                    name="lastName"
-                    ref = {lastName}
                     required
                 />
               </div>
@@ -102,7 +90,7 @@ function Register() {
                       type="email"
                       placeholder="Enter email"
                       name="email"
-                      ref = {email}
+                      ref = {emailField}
                       required
                   />
               </div>
@@ -116,7 +104,7 @@ function Register() {
                       value={pass}
                       onChange={(e) => { setPassword(e.target.value) }}
                       minLength='8'
-                      ref = {password}
+                      ref = {passwordField}
                       required
                 />
               </div>
@@ -127,7 +115,7 @@ function Register() {
                       id="repswd"
                       placeholder="Confirm password"
                       value={cPassword}
-                    onChange={handleCPassword}
+                      onChange={handleCPassword}
                       name="re_password"
                       minLength='8'
                       ref = {rePassword}
@@ -136,7 +124,7 @@ function Register() {
               </div>
               {showErrorMessage  && isCPasswordDirty ? <div> Passwords did not match </div> : ''}
               {showLengthMessage && isCPasswordDirty ? <div> Password must have at least 8 characters </div> : ''}
-            <button disabled={showLengthMessage || showErrorMessage && isCPasswordDirty ? true : false}className="btn btn-primary" type="submit" onClick={register}>Register</button>
+            <button className="btn btn-primary" type="submit" onClick={register}>Register</button>
             </form>
         </div>
     );
