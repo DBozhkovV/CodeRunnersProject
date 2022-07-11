@@ -33,6 +33,8 @@ function Register() {
         };     
 
         console.log(requestOptions);
+
+        firstName.current.value = lastName.current.value = email.current.value = password.current.value = rePassword.current.value = "";
     }
 
     return(
