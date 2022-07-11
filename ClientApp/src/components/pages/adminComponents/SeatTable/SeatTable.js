@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-import '../../App.css'; 
-import ActionRemove from "./ActionRemove";
+import '../../../App.css'; 
+import ActionRemove from "./RemoveSeat";
 import { useNavigate } from "react-router-dom";
-import ActionAdd from "./ActionAdd";
+import ActionAdd from "./AddSeat";
 
 const SeatTable = () => {
     const navigate = useNavigate();
@@ -37,7 +37,7 @@ const SeatTable = () => {
             <button className="rightbutton button1" onClick={() => setAddShow(true)}>Add</button>
                 <ActionAdd show={AddShow} onHide={() => setAddShow(false)}/>
         </div>
-        <table className="seatTable">
+        <table>
             <thead>
                 <tr>
                     <th>Desk number</th>
