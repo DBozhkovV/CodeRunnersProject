@@ -1,13 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Link } from 'react-router-dom'
 import axios from 'axios';
 
 function Login() {
-    const [password, setPassword] = useState(0);
-    const [email, setEmail] = useState(0);
+    const emailField = useRef();
+    const passwordField = useRef();
+
     const [result, setResult] = useState();
 
-    const register = () => {
+    const loginAction = (event) => {
+        event.preventDefault();
+        const email = emailField.current.value;
+        const password = passwordField.current.value;
+
         console.log(email);
         console.log(password);
         axios.post(`https://localhost:7031/controller`, {email, password})
@@ -20,7 +25,6 @@ function Login() {
         console.log(result);
     }
 
-
     return(
         <div className="container mt-5">
             <h1>Sign in</h1>
@@ -32,7 +36,7 @@ function Login() {
                       type="email"
                       placeholder="Enter email"
                       name="email"
-                      onChange={e => setEmail(e.target.value)}
+                      ref = {emailField}
                       required
                   />
               </div>
@@ -43,11 +47,11 @@ function Login() {
                       placeholder="Enter password"
                       name="password"
                       minLength='8'
-                      onChange={e => setPassword(e.target.value)}
+                      ref={passwordField}
                       required
                 />
               </div>
-            <button className="btn btn-primary" type="submit" onClick={register}>Sign in</button>
+            <button className="btn btn-primary" type="submit" onClick={loginAction}>Sign in</button>
             </form>
             <p className="mt-3">
                 <Link to={`/register`} className="btn btn-outline-dark me-2">Don't have an account?</Link>

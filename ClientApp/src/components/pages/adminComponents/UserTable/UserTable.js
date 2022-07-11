@@ -12,20 +12,19 @@ const UserTable = () => {
     const [RemoveShow, setRemoveShow] = useState(false);
     const [IdRemove, setIdRemove] = useState();
 
-    // useEffect(() => {
-    //     const getUsers = async () => {
-    //         axios.get('https://localhost:7031/Booking')
-    //             .then(response => {
-    //                 setUsers(response.data)
-    //             })
-    //             .catch(error => {
-    //                 console.log(error)
-    //             })
-    //     }
-    //     getUsers();
-    // }, []);
+    useEffect(() => {
+        const getUsers = async () => {
+            axios.get('https://localhost:7031/UserList')
+                .then(response => {
+                    setUsers(response.data)
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+        }
+        getUsers();
+    }, []);
 
-    
     const navSelection = () => {
         navigate("/admin/selection");
         window.location.reload();
@@ -41,16 +40,14 @@ const UserTable = () => {
         <table>
             <thead>
                 <tr>
-                    <th>Username</th>
-                    <th>Age</th>
+                    <th>Email</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
                 {users.map((user) => (
                    <tr key={user.id}>
-                        <td>{user.name}</td>
-                        <td>Godini</td>
+                        <td>{user.userName}</td>
                         <td>
                         <button className="buttonsmall" onClick={() => {
                                 setRemoveShow(true);
