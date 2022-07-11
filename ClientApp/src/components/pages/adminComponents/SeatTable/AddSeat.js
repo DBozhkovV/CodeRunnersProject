@@ -5,7 +5,6 @@ import axios from 'axios';
 
 function ActionAdd(props){
     const [seat, setSeat] = useState([]);
-
     const [name, setName] = useState();    
     const [color, setColor] = useState(); 
 

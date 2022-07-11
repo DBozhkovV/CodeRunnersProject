@@ -34,7 +34,7 @@ function Register() {
               <div className="form-group">
                 <input 
                     className="form-control"
-                    type="firstName"
+                    type="text"
                     placeholder="Enter first name"
                     name="firstName"
                     ref = {firstNameField}
@@ -44,7 +44,7 @@ function Register() {
               <div className="form-group">
                 <input 
                     className="form-control"
-                    type="lastName"
+                    type="text"
                     placeholder="Enter last name"
                     name="lastName"
                     ref = {lastNameField}
