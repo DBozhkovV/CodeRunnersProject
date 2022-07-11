@@ -1,40 +1,29 @@
-import React, { useState, useRef } from "react";
-
+import React, { useRef } from "react";
+import axios from 'axios';
 // !!! PROBLEM KOGATO SE REGISTRIRA URL-A se smenq na dannite na registriraliqt se
 // !!! PROVERKA DALI REPASSWORD-A suvpada s passworda
 
 function Register() {
 
-    const firstName = useRef();
-    const lastName = useRef();
-    const password = useRef();
-    const rePassword = useRef();
-    const email = useRef();
+    const firstNameField = useRef();
+    const lastNameField = useRef();
+    const passwordField = useRef();
+    const rePasswordField = useRef();
+    const emailField = useRef();
 
     const register = (event) => {
        
         event.preventDefault();
-        const enteredFirstName = firstName.current.value;
-        const enteredlastName = lastName.current.value;
-        const enteredEmail = email.current.value;
-        const enteredPassword = password.current.value;
-        const enteredRePassword = rePassword.current.value;
+        const name = firstNameField.current.value;
+        // const enteredlastName = lastName.current.value;
+        const email = emailField.current.value;
+        const password = passwordField.current.value;
+        // const enteredRePassword = rePassword.current.value;
 
-        const requestOptions = {
-            method: 'POST', headers: { 'Content-Type': 'application/json' }, 
-            body: JSON.stringify({
-                firstName: enteredFirstName, 
-                lastName: enteredlastName,
-                password: enteredPassword,
-                rePassword: enteredRePassword,
-                email: enteredEmail
-            }),
-            mode: 'cors'   
-        };     
-
-        console.log(requestOptions);
-
-        firstName.current.value = lastName.current.value = email.current.value = password.current.value = rePassword.current.value = "";
+        axios.post(`https://localhost:7031/Register`, {email, password, name})
+            .catch(error => {
+                console.log(error)
+            })
     }
 
     return(
@@ -48,7 +37,7 @@ function Register() {
                     type="firstName"
                     placeholder="Enter first name"
                     name="firstName"
-                    ref = {firstName}
+                    ref = {firstNameField}
                     required
                 />
               </div>
@@ -58,7 +47,7 @@ function Register() {
                     type="lastName"
                     placeholder="Enter last name"
                     name="lastName"
-                    ref = {lastName}
+                    ref = {lastNameField}
                     required
                 />
               </div>
@@ -68,7 +57,7 @@ function Register() {
                       type="email"
                       placeholder="Enter email"
                       name="email"
-                      ref = {email}
+                      ref = {emailField}
                       required
                   />
               </div>
@@ -79,7 +68,7 @@ function Register() {
                       placeholder="Enter password"
                       name="password"
                       minLength='8'
-                      ref = {password}
+                      ref = {passwordField}
                       required
                 />
               </div>
@@ -90,7 +79,7 @@ function Register() {
                       placeholder="Confirm password"
                       name="re_password"
                       minLength='8'
-                      ref = {rePassword}
+                      ref = {rePasswordField}
                       required
                 />
               </div>

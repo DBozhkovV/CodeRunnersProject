@@ -20,8 +20,6 @@ const MyTable = () => {
     const [bookings, setBookings] = useState([]);
     
     useEffect(() => {
-        console.log(par);
-
         const getBookings = async () => {
             axios.get(`https://localhost:7031/Booking/${par}`)
                 .then(response => {
