@@ -11,6 +11,7 @@ const SeatTable = () => {
     const [RemoveShow, setRemoveShow] = useState(false);
     const [AddShow, setAddShow] = useState(false);
     const [IdRemove, setIdRemove] = useState();
+    const [NameRemove, setNameRemove] = useState();
     
     useEffect(() => {
         const getSeats = async () => {
@@ -53,13 +54,14 @@ const SeatTable = () => {
                         <td>
                             <button className="buttonsmall" onClick={() => {
                                 setRemoveShow(true);
-                                setIdRemove(seat.id);       
+                                setIdRemove(seat.id);
+                                setNameRemove(seat.name);       
                             }
                             }>Remove</button>
                         </td>
                     </tr>
                 ))}
-                <ActionRemove id = {IdRemove} show={RemoveShow} onHide={() => setRemoveShow(false)}/>
+               <ActionRemove name = {NameRemove} id = {IdRemove} show={RemoveShow} onHide={() => setRemoveShow(false)}/>
             </tbody>
         </table>
     </div>

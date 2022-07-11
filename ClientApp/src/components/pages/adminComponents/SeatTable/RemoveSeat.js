@@ -21,7 +21,7 @@ function ActionRemove(props){
         >
             <Modal.Header closeButton>
                 <ModalTitle>
-                    Are you sure ?
+                    Are you sure you want to delete Seat#{props.id} named {props.name}?
                 </ModalTitle>
             </Modal.Header>
             <Modal.Footer>
