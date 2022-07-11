@@ -7,6 +7,7 @@ function Register() {
     const [pass, setPassword] = useState('');
     const [cPassword, setCPassword] = useState('');
     const [showErrorMessage, setShowErrorMessage] = useState(false);
+    const [showLengthMessage, setShowLengthMessage] = useState(false);
     const [cPasswordClass, setCPasswordClass] = useState('form-control');
     const [isCPasswordDirty, setIsCPasswordDirty] = useState(false);
 
@@ -24,8 +25,17 @@ function Register() {
     useEffect(() => {
         if (isCPasswordDirty) {
             if (pass === cPassword) {
-                setShowErrorMessage(false);
-                setCPasswordClass('form-control is-valid')
+                setShowErrorMessage(false)
+                if(pass.length < 8){
+                    
+                    setShowLengthMessage(true)
+                    setCPasswordClass('form-control is invalid')
+                }
+                else{
+
+                    setShowLengthMessage(false)
+                    setCPasswordClass('form-control is-valid')
+                }
             } else {
                 setShowErrorMessage(true)
                 setCPasswordClass('form-control is-invalid')
@@ -57,6 +67,7 @@ function Register() {
         console.log(requestOptions);
 
         firstName.current.value = lastName.current.value = email.current.value = password.current.value = rePassword.current.value = "";
+    
     }
 
     return(
@@ -123,8 +134,9 @@ function Register() {
                       required
                 />
               </div>
-              {showErrorMessage && isCPasswordDirty ? <div> Passwords did not match </div> : ''}
-            <button disabled={showErrorMessage && isCPasswordDirty ? true : false}className="btn btn-primary" type="submit" onClick={register}>Register</button>
+              {showErrorMessage  && isCPasswordDirty ? <div> Passwords did not match </div> : ''}
+              {showLengthMessage && isCPasswordDirty ? <div> Password must have at least 8 characters </div> : ''}
+            <button disabled={showLengthMessage || showErrorMessage && isCPasswordDirty ? true : false}className="btn btn-primary" type="submit" onClick={register}>Register</button>
             </form>
         </div>
     );
