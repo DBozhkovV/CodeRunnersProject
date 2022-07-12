@@ -5,20 +5,31 @@ import logo from '../images/coderunners.png'
 import { Navbar, Nav, Container, NavbarBrand } from 'react-bootstrap';
 import LoadingSpinner from "../LoadingScreen/LoadingSpinner";
 import MyCalendar from '../CalendarComponents/MyCalendar';
+import {useLocation} from 'react-router-dom';
 import Logout from './Logout';
 
-function Home() {
+function Home(props) {
+  const location = useLocation();
   const [isLoading, setIsLoading] = useState(true);
 
   const token = localStorage.getItem("token");
+  console.log(location.state);
 
   useEffect(() => {
+    if(location.state===null){
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 1500);
     return () => clearTimeout(timer);
+    }
+    else{
+      setIsLoading(false);
+    }
   }, []);
 
+
+
+  
   const LoginElement = () => {
     if (token) {
       return <Nav.Link href="http://localhost:3000/logout">Logout</Nav.Link>;
@@ -61,7 +72,7 @@ function Home() {
 
   return (
     <div className="App" >
-      {isLoading ? <LoadingSpinner /> : nav}
+      {isLoading  ? <LoadingSpinner /> : nav}
     </div>
   );
 }

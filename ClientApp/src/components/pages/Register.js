@@ -119,12 +119,12 @@ function Register() {
                       name="re_password"
                       minLength='8'
                       ref = {rePassword}
-                      required
+                      required 
                 />
               </div>
               {showErrorMessage  && isCPasswordDirty ? <div> Passwords did not match </div> : ''}
               {showLengthMessage && isCPasswordDirty ? <div> Password must have at least 8 characters </div> : ''}
-            <button className="btn btn-primary" type="submit" onClick={register}>Register</button>
+            <button disabled={showLengthMessage || showErrorMessage && isCPasswordDirty ? true : false} className="btn btn-primary" type="submit" onClick={register}>Register</button>
             </form>
         </div>
     );

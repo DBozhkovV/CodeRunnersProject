@@ -2,14 +2,20 @@ import React, { useState, useEffect }from 'react';
 import {Helmet} from "react-helmet";
 import classes from './Success.module.css'
 import photo from '../images/banana.svg'
+import { useNavigate } from "react-router-dom";
+
+
 
 function Success() 
 {
+
+    const navigate = useNavigate();
     const[isSecondLottieLoaded, setSecondLottieLoaed] = useState(false);
 
     useEffect(() => 
     {
         setTimeout(() => setSecondLottieLoaed(true), 3000);
+        setTimeout(() => navigate("/",{state:{isLoaded: true}}), 7000);
     }, []);
 
     return(
@@ -24,6 +30,7 @@ function Success()
                 <h1>You have been registered successfully!</h1>
                 {isSecondLottieLoaded && <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_bhths1ye.json"  background="transparent"  speed="1"  style={{width: "400px", height: "400px"}}  autoplay></lottie-player>}
                 {!isSecondLottieLoaded && <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_y9jgwjuc.json"  background="transparent"  speed="0.7"  style={{width: "350px", height: "400px"}} autoplay></lottie-player>}
+
             </div>
         </div>
     ) 
