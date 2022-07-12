@@ -10,6 +10,7 @@ import MyTable from "./components/CalendarComponents/MyTable";
 import AdminSelection from "./components/pages/adminComponents/AdminSelection";
 import UserTable from "./components/pages/adminComponents/UserTable/UserTable";
 import SeatTable from "./components/pages/adminComponents/SeatTable/SeatTable";
+import Logout from "./components/pages/Logout";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/login" element={<Login/>} />
+          <Route path="/logout" element={<Logout/>} />
           <Route path="/register" element={<Register/>} />
           <Route path="/profile" element={<Profile/>} />
           <Route path="/success" element={<Success/>} />

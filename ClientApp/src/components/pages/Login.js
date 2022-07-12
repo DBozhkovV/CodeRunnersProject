@@ -1,12 +1,10 @@
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import { Link } from 'react-router-dom'
 import axios from 'axios';
 
 function Login() {
     const emailField = useRef();
     const passwordField = useRef();
-
-    const [result, setResult] = useState();
 
     const loginAction = (event) => {
         event.preventDefault();
@@ -17,12 +15,13 @@ function Login() {
         console.log(password);
         axios.post(`https://localhost:7031/controller`, {email, password})
             .then(response => {
-                setResult(response)
+                const token  =  response.data.token;
+                localStorage.setItem("token", token);
+                window.location.href = '/';
             })
             .catch(error => {
                 console.log(error)
             })
-        console.log(result);
     }
 
     return(

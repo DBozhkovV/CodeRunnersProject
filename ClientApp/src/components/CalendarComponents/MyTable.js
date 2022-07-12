@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from 'axios';
 import '../App.css'; 
 import { useNavigate } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 
 const MyTable = () => {
     const navigate = useNavigate();
@@ -32,6 +33,27 @@ const MyTable = () => {
         }
         getBookings();
     }, []);
+
+    const getSeat = async (props) => {
+        try{
+
+        const token = localStorage.getItem("token");
+        console.log(token);
+        }catch(error){
+            console.log(error);
+        }
+        // console.log(props);
+        // const seatId = props;
+        // const time = currentday;
+
+        // axios.post(`https://localhost:7031/Booking`, {userId, seatId, time})
+        //     .then(response => {
+        //         console.log(response.data);
+        //     })
+        //     .catch(error => {
+        //         console.log(error)
+        //     })   
+    }
 
     const prevDateChange = () => {
         var dated = prevDate.getDate();
@@ -81,7 +103,6 @@ const MyTable = () => {
                 <tr>
                     <th>Desk number</th>
                     <th>Name</th>
-                    <th>Date</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -90,8 +111,7 @@ const MyTable = () => {
                    <tr key={booking.id}>
                         <td>{booking.name}</td>
                         <td>{booking.color}</td>
-                        <td>Vreme</td>
-                        <td><button type="button">Get</button> </td>
+                        <td><button type="button" onClick={() => getSeat(booking.id)}>Get</button> </td>
                     </tr>
                 ))}
             </tbody>

@@ -2,8 +2,7 @@ import React from 'react';
 import photo from '../images/men.jpg'
 import classes from './Profile.module.css'
 
-function Profile() 
-{
+function Profile() {
     return(
         <div className={classes.background}>
             <div className = {classes.card}>
