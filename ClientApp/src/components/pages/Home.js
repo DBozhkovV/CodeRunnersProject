@@ -27,9 +27,6 @@ function Home(props) {
     }
   }, []);
 
-
-
-  
   const LoginElement = () => {
     if (token) {
       return <Nav.Link href="http://localhost:3000/logout">Logout</Nav.Link>;
