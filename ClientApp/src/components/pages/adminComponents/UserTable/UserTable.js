@@ -11,6 +11,7 @@ const UserTable = () => {
     const [AddShow, setAddShow] = useState(false);
     const [RemoveShow, setRemoveShow] = useState(false);
     const [IdRemove, setIdRemove] = useState();
+    
     useEffect(() => {
         const getUsers = async () => {
             axios.get('https://localhost:7031/UserList')

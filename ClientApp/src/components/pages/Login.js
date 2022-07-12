@@ -15,7 +15,7 @@ function Login() {
         console.log(password);
         axios.post(`https://localhost:7031/controller`, {email, password})
             .then(response => {
-                const token  =  response.data.token;
+                const token  =  response.data;
                 localStorage.setItem("token", token);
                 window.location.href = '/';
             })

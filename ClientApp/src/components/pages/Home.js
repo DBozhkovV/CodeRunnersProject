@@ -66,7 +66,7 @@ function Home(props) {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <MyCalendar />
+      {token ? <MyCalendar /> : null}
     </div>
   );
 

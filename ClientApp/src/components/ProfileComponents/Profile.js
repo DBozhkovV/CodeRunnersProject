@@ -5,6 +5,7 @@ import classes from './Profile.module.css'
 function Profile() {
     return(
         <div className={classes.background}>
+            <button>Go back</button>
             <div className = {classes.card}>
                 <div className = {classes.content}>
                     <img className = {classes.photo} src={photo} alt = "Profile pic"></img>
