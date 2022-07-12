@@ -2,8 +2,6 @@ import React, { useState, useRef,useEffect } from "react";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
-
-
 function Register() {
     const navigate = useNavigate();
     const [result, setResult] = useState();
@@ -28,13 +26,11 @@ function Register() {
         if (isCPasswordDirty) {
             if (pass === cPassword) {
                 setShowErrorMessage(false)
-                if(pass.length < 8){
-                    
+                if(pass.length < 8){                   
                     setShowLengthMessage(true)
                     setCPasswordClass('form-control is invalid')
                 }
                 else{
-
                     setShowLengthMessage(false)
                     setCPasswordClass('form-control is-valid')
                 }
@@ -46,13 +42,11 @@ function Register() {
     }, [cPassword])
 
     const register = (event) => {
-       
         event.preventDefault();
         const name = firstName.current.value;
         const email = emailField.current.value;
         const password = passwordField.current.value;
-
-
+        
         setResult(0);
 
         axios.post(`https://localhost:7031/Register`,{email,password,name})
@@ -63,14 +57,13 @@ function Register() {
             console.log(error)
         })
            
-        console.log(result);
+        // console.log(result);
         navigate("/success");
         window.location.reload();
     }
 
     return(
         <div className="container mt-5">
-
             <h1>Sign up</h1>
             <p>Create your account</p>
             <form>

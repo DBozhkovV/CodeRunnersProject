@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import axios from 'axios';
 import '../App.css'; 
 import { useNavigate } from "react-router-dom";
-import jwt_decode from "jwt-decode";
 
 const MyTable = () => {
     const navigate = useNavigate();

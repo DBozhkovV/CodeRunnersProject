@@ -1,19 +1,13 @@
 import React, { useState, useEffect }from 'react';
 import {Helmet} from "react-helmet";
-import classes from './Success.module.css'
-import photo from '../images/banana.svg'
+import classes from './Success.module.css';
 import { useNavigate } from "react-router-dom";
 
-
-
-function Success() 
-{
-
+function Success() {
     const navigate = useNavigate();
     const[isSecondLottieLoaded, setSecondLottieLoaed] = useState(false);
 
-    useEffect(() => 
-    {
+    useEffect(() => {
         setTimeout(() => setSecondLottieLoaed(true), 3000);
         setTimeout(() => navigate("/",{state:{isLoaded: true}}), 7000);
     }, []);
@@ -33,8 +27,7 @@ function Success()
 
             </div>
         </div>
-    ) 
-
+    );
 }
 
 export default Success;

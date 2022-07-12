@@ -17,7 +17,8 @@ function Login() {
             .then(response => {
                 const token  =  response.data;
                 localStorage.setItem("token", token);
-                window.location.href = '/';
+                console.log(localStorage.getItem("token"));
+                // window.location.href = '/';
             })
             .catch(error => {
                 console.log(error)

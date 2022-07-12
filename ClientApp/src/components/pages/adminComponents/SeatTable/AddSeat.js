@@ -4,15 +4,11 @@ import { Button, ModalBody, ModalTitle } from 'react-bootstrap';
 import axios from 'axios';
 
 function ActionAdd(props){
-    const [seat, setSeat] = useState([]);
     const [name, setName] = useState();    
     const [color, setColor] = useState(); 
 
     const AddSeat = async () => {
         axios.post(`https://localhost:7031/Seat`, {name, color})
-            .then(response => {
-                setSeat(response.data)
-            })
             .catch(error => {
                 console.log(error)
             })
