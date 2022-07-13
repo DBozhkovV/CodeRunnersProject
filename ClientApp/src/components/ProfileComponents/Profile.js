@@ -21,7 +21,6 @@ function Profile() {
     const targetDiv2 = document.getElementById("changeNumber");
     const targetDiv3 = document.getElementById("changeImage");
 
-    const btn = document.getElementById("ca");
     useEffect(() => {
         document.getElementById("changeAge").style.display = "none";
         document.getElementById("changeNumber").style.display = "none";

@@ -1,5 +1,5 @@
 import React, { useState, useEffect }from 'react';
-import {Helmet} from "react-helmet";
+import {Helmet, HelmetProvider} from "react-helmet-async";
 import classes from './Success.module.css';
 import { useNavigate } from "react-router-dom";
 
@@ -13,6 +13,8 @@ function Success() {
     }, []);
 
     return(
+        <HelmetProvider>
+
         <div className = {classes.content}>
             <Helmet>
                 <script
@@ -27,6 +29,7 @@ function Success() {
 
             </div>
         </div>
+        </HelmetProvider>
     );
 }
 

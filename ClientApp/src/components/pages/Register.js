@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 
 function Register() {
     const navigate = useNavigate();
-    const [result, setResult] = useState();
     const [pass, setPassword] = useState('');
     const [cPassword, setCPassword] = useState('');
     const [showErrorMessage, setShowErrorMessage] = useState(false);
@@ -24,6 +23,7 @@ function Register() {
 
     useEffect(() => {
         if (isCPasswordDirty) {
+            console.log(cPasswordClass);
             if (pass === cPassword) {
                 setShowErrorMessage(false)
                 if(pass.length < 8){                   
@@ -47,17 +47,16 @@ function Register() {
         const email = emailField.current.value;
         const password = passwordField.current.value;
         
-        setResult(0);
 
         axios.post(`https://localhost:7031/Register`,{email,password,name})
         .then(response => {
-            setResult(response.status)
+            console.log(response.status)
         })
         .catch(error => {
             console.log(error)
         })
            
-        // console.log(result);
+
         navigate("/success");
         window.location.reload();
     }
@@ -117,7 +116,7 @@ function Register() {
               </div>
               {showErrorMessage  && isCPasswordDirty ? <div> Passwords did not match </div> : ''}
               {showLengthMessage && isCPasswordDirty ? <div> Password must have at least 8 characters </div> : ''}
-            <button disabled={showLengthMessage || showErrorMessage && isCPasswordDirty ? true : false} className="btn btn-primary" type="submit" onClick={register}>Register</button>
+            <button disabled={(showLengthMessage || showErrorMessage) && isCPasswordDirty ? true : false} className="btn btn-primary" type="submit" onClick={register}>Register</button>
             </form>
         </div>
     );
