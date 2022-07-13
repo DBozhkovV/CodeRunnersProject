@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Calendar from "react-calendar";
 import { useNavigate } from "react-router-dom";
+import '../App.css'; 
 
 // date.getDate() - vrushta datata - 22
 
@@ -24,7 +25,7 @@ const MyCalendar = () => {
   
 
   return(
-      <Calendar onChange={onChange} value={date} />
+      <Calendar className="calendarCenter" onChange={onChange} value={date} />
      
   );
 }
