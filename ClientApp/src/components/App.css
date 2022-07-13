@@ -156,3 +156,25 @@ td {
     float:right;
     margin-right: 6.2%;
 }
+
+#main {
+  height: 100vh;
+}
+
+.btn-dark {
+  font-family: Raleway-SemiBold;
+  font-size: 20px;
+  color: rgba(217, 83, 78, 0.75);
+  letter-spacing: 0.5px;
+  line-height: 15px;
+  border: 3px solid rgba(217, 83, 78, 0.75);
+  border-radius: 1000px;
+  background: transparent;
+  transition: all 0.3s ease 0s;
+}
+
+.btn-dark:hover {
+  color: #FFF;
+  background: rgba(217, 83, 78, 0.75);
+  border: 2.5px solid rgba(217, 83, 78, 0.75);
+}

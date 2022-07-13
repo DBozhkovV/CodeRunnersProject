@@ -11,11 +11,14 @@ import AdminSelection from "./components/pages/adminComponents/AdminSelection";
 import UserTable from "./components/pages/adminComponents/UserTable/UserTable";
 import SeatTable from "./components/pages/adminComponents/SeatTable/SeatTable";
 import Logout from "./components/pages/Logout";
+import NotFound from "./components/pages/NotFound";
 
 function App() {
+
   return (
     <BrowserRouter>
         <Routes>
+          <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Home />}  />
           <Route path="/login" element={<Login/>} />
           <Route path="/logout" element={<Logout/>} />
@@ -27,6 +30,7 @@ function App() {
           <Route path="/admin/userTable" element={<UserTable/>} />
           <Route path="/admin/seatTable" element={<SeatTable/>} /> 
           <Route path="/table/:date" element={<MyTable/>} />      
+
         </Routes>
     </BrowserRouter>
   );
