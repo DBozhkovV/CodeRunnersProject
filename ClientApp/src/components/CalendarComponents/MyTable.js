@@ -18,13 +18,26 @@ const MyTable = () => {
     nextDate.setDate(nextDate.getDate() + 1);
 
     const [bookings, setBookings] = useState([]);
-    
+
+    // axios.interceptors.request.use(
+    //     config => {
+    //         config.headers.Authorization = `Bearer ${localStorage.getItem("token")}`
+    //     },
+    //     error => {
+    //         return Promise.reject(error);
+    //     }
+    // );
+
+    const token = localStorage.getItem("token");
+
     useEffect(() => {
         const getBookings = async () => {
-            axios.get(`https://localhost:7031/Booking/${par}`)
+            axios.get(`https://localhost:7031/Booking/${par}`, { headers: {"Authorization" : `Bearer ${token}`} })
                 .then(response => {
                     setBookings(response.data)
                     console.log(response.data);
+                    console.log(response);
+                    console.log("4");
                 })
                 .catch(error => {
                     console.log(error)
@@ -32,12 +45,11 @@ const MyTable = () => {
         }
         getBookings();
     }, []);
-
+    
     const getSeat = async (props) => {
         try{
-
-        const token = localStorage.getItem("token");
-        console.log(token);
+            // const token = localStorage.getItem("token");
+            // console.log(token);
         }catch(error){
             console.log(error);
         }

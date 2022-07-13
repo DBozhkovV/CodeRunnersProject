@@ -11,14 +11,12 @@ function Login() {
         const email = emailField.current.value;
         const password = passwordField.current.value;
 
-        console.log(email);
-        console.log(password);
         axios.post(`https://localhost:7031/controller`, {email, password})
             .then(response => {
                 const token  =  response.data;
                 localStorage.setItem("token", token);
-                console.log(localStorage.getItem("token"));
-                // window.location.href = '/';
+                axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+                window.location.href = '/';
             })
             .catch(error => {
                 console.log(error)
