@@ -1,22 +1,40 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import axios from 'axios';
+import jwt from 'jwt-decode';
 
 function Admin() {
-    const [password, setPassword] = useState(0);
-    const [email, setEmail] = useState(0);
-    const [result, setResult] = useState();
+    const emailField = useRef();
+    const passwordField = useRef();
 
-    const SignInAdmin = async () => {
-        console.log(email);
-        console.log(password);
+    const token = localStorage.getItem("token");
+    if(token !== null){
+        console.log("Error");
+        window.location.href = '/';
+        return null;
+    }
+
+    const SignInAdmin = async (event) => {
+        event.preventDefault();
+        const email = emailField.current.value;
+        const password = passwordField.current.value;
+
         axios.post(`https://localhost:7031/controller`, {email, password})
             .then(response => {
-                setResult(response.data)
+                const token = response.data;
+                const decodedToken = jwt(token);
+                localStorage.setItem("token", token);
+                axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+
+                if(decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'] !== "Admin"){
+                    console.log("Error");
+                    window.location.href = '/';
+                    return null;
+                }
+                window.location.href = '/admin/selection';
             })
             .catch(error => {
                 console.log(error)
             })
-        console.log(result);
     }
     
     return(
@@ -30,7 +48,7 @@ function Admin() {
                       type="email"
                       placeholder="Enter email"
                       name="email"
-                      onChange={e => setEmail(e.target.value)}
+                      ref = {emailField}
                       required
                   />
               </div>
@@ -41,7 +59,7 @@ function Admin() {
                       placeholder="Enter password"
                       name="password"
                       minLength='8'
-                      onChange={e => setPassword(e.target.value)}
+                      ref={passwordField}
                       required
                 />
               </div>

@@ -8,8 +8,10 @@ const AddUser = (props) => {
     const [email, setEmail] = useState();   
     const [password, setPassword] = useState();
 
+    const token = localStorage.getItem("token");
+    
     const RegisterUser = async () => {
-        axios.post(`https://localhost:7031/Register`, {email, password, name})
+        axios.post(`https://localhost:7031/Register`, {email, password, name}, { headers: {"Authorization" : `Bearer ${token}`} })
             .catch(error => {
                 console.log(error)
             })

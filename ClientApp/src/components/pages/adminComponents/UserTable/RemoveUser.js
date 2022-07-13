@@ -5,9 +5,9 @@ import axios from 'axios';
 
 const RemoveUser = (props) => {
     let Id = props.id;
+    const token = localStorage.getItem("token");
     const DeleteUser = async () => {
-        console.log(Id);
-        axios.delete(`https://localhost:7031/UserList?Id=${Id}`)
+        axios.delete(`https://localhost:7031/UserList/${Id}`, { headers: {"Authorization" : `Bearer ${token}`} })
             .catch(error => {
                 console.log(error)
             })

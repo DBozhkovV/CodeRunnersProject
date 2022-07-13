@@ -4,8 +4,11 @@ import { Button, ModalTitle} from 'react-bootstrap';
 import axios from 'axios';
 
 function ActionRemove(props){
+
+    const token = localStorage.getItem("token");
+    
     const DeleteSeat = async () => {
-        axios.delete(`https://localhost:7031/Seat/${props.id}`)
+        axios.delete(`https://localhost:7031/Seat/${props.id}`, { headers: {"Authorization" : `Bearer ${token}`} })
             .catch(error => {
                 console.log(error)
             })

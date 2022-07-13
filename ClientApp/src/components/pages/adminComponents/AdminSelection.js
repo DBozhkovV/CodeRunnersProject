@@ -1,7 +1,10 @@
 import React from "react";
 import { MDBCard, MDBCardTitle, MDBContainer } from "mdbreact";
+import checkAdmin from './checkAdmin';
 
 const AdminSelection = () => {
+    checkAdmin();
+    
     return (
         <MDBContainer style={{
             display: 'flex',

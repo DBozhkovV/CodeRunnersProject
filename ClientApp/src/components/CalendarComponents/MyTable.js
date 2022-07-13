@@ -19,25 +19,18 @@ const MyTable = () => {
 
     const [bookings, setBookings] = useState([]);
 
-    // axios.interceptors.request.use(
-    //     config => {
-    //         config.headers.Authorization = `Bearer ${localStorage.getItem("token")}`
-    //     },
-    //     error => {
-    //         return Promise.reject(error);
-    //     }
-    // );
-
     const token = localStorage.getItem("token");
+    if(token === null){
+        console.log("Error");
+        window.location.href = '/';
+        return null;
+    }
 
     useEffect(() => {
         const getBookings = async () => {
             axios.get(`https://localhost:7031/Booking/${par}`, { headers: {"Authorization" : `Bearer ${token}`} })
                 .then(response => {
-                    setBookings(response.data)
-                    console.log(response.data);
-                    console.log(response);
-                    console.log("4");
+                    setBookings(response.data);
                 })
                 .catch(error => {
                     console.log(error)
@@ -47,23 +40,10 @@ const MyTable = () => {
     }, []);
     
     const getSeat = async (props) => {
-        try{
-            // const token = localStorage.getItem("token");
-            // console.log(token);
-        }catch(error){
-            console.log(error);
-        }
-        // console.log(props);
-        // const seatId = props;
-        // const time = currentday;
-
-        // axios.post(`https://localhost:7031/Booking`, {userId, seatId, time})
-        //     .then(response => {
-        //         console.log(response.data);
-        //     })
-        //     .catch(error => {
-        //         console.log(error)
-        //     })   
+        axios.post(`https://localhost:7031/Booking?seat_id=${props}&time=${par}`, {}, { headers: {"Authorization" : `Bearer ${token}`} })
+        .catch(error => {
+            console.log(error)
+        })
     }
 
     const prevDateChange = () => {

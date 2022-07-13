@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { Link } from 'react-router-dom'
 import axios from 'axios';
+import jwt from 'jwt-decode';
 
 function Login() {
     const emailField = useRef();
@@ -14,6 +15,11 @@ function Login() {
         axios.post(`https://localhost:7031/controller`, {email, password})
             .then(response => {
                 const token  =  response.data;
+                const decodedToken = jwt(token);
+                if(decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'] === "Admin"){
+                    console.log("Error");
+                    return null;
+                }
                 localStorage.setItem("token", token);
                 axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
                 window.location.href = '/';

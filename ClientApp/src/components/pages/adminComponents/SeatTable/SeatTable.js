@@ -4,6 +4,7 @@ import '../../../App.css';
 import ActionRemove from "./RemoveSeat";
 import { useNavigate } from "react-router-dom";
 import ActionAdd from "./AddSeat";
+import checkAdmin from "../checkAdmin";
 
 const SeatTable = () => {
     const navigate = useNavigate();
@@ -12,10 +13,14 @@ const SeatTable = () => {
     const [AddShow, setAddShow] = useState(false);
     const [IdRemove, setIdRemove] = useState();
     const [NameRemove, setNameRemove] = useState();
-    
+
+    checkAdmin();
+
+    const token = localStorage.getItem("token");
+
     useEffect(() => {
         const getSeats = async () => {
-            axios.get(`https://localhost:7031/Seat`)
+            axios.get(`https://localhost:7031/Seat`, { headers: {"Authorization" : `Bearer ${token}`} })
                 .then(response => {
                     setSeats(response.data)
                 })

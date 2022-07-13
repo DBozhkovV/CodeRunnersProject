@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import '../../../App.css';
 import AddUser from "./AddUser";
 import RemoveUser from "./RemoveUser";
+import checkAdmin from "../checkAdmin";
 
 const UserTable = () => {
     const navigate = useNavigate();
@@ -12,6 +13,8 @@ const UserTable = () => {
     const [RemoveShow, setRemoveShow] = useState(false);
     const [IdRemove, setIdRemove] = useState();
     
+    checkAdmin();
+
     useEffect(() => {
         const getUsers = async () => {
             axios.get('https://localhost:7031/UserList')

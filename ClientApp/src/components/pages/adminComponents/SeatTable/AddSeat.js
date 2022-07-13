@@ -7,8 +7,10 @@ function ActionAdd(props){
     const [name, setName] = useState();    
     const [color, setColor] = useState(); 
 
+    const token = localStorage.getItem("token");
+
     const AddSeat = async () => {
-        axios.post(`https://localhost:7031/Seat`, {name, color})
+        axios.post(`https://localhost:7031/Seat`, {name, color}, { headers: {"Authorization" : `Bearer ${token}`} })
             .catch(error => {
                 console.log(error)
             })
