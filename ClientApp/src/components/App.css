@@ -151,3 +151,8 @@ td {
   background-color: rgb(117, 201, 250);
   color: white;
 }
+
+#wrapper{
+    float:right;
+    margin-right: 6.2%;
+}
