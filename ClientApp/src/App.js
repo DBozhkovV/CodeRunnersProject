@@ -14,7 +14,6 @@ import Logout from "./components/pages/Logout";
 import NotFound from "./components/pages/NotFound";
 
 function App() {
-
   return (
     <BrowserRouter>
         <Routes>
@@ -29,10 +28,9 @@ function App() {
           <Route path="/admin/selection" element={<AdminSelection />} />
           <Route path="/admin/userTable" element={<UserTable/>} />
           <Route path="/admin/seatTable" element={<SeatTable/>} /> 
-          <Route path="/table/:date" element={<MyTable/>} />      
-
+          <Route path="/table/:date" element={<MyTable/>} />           
         </Routes>
-    </BrowserRouter>
+    </BrowserRouter>      
   );
 }
 

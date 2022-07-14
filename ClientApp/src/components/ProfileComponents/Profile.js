@@ -4,6 +4,7 @@ import jwt from 'jwt-decode';
 import axios from 'axios';
 import '../../components/App.css';
 import { Link } from 'react-router-dom';
+import DatePick from './DatePick';
 
 function Profile() {
     const [user, setUser] = useState([]);
@@ -12,8 +13,6 @@ function Profile() {
     const [phoneNumber,setPhoneNumber] = useState();
     const t = jwt(localStorage.getItem("token"));
     const token = localStorage.getItem("token");
-    console.log(token)
-    console.log(t);
     
     let Id = t['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'];
 
@@ -26,9 +25,6 @@ function Profile() {
         document.getElementById("changeNumber").style.display = "none";
         document.getElementById("changeImage").style.display = "none";
     }, []);
-
-  
-
 
     function btnfunc() {
         if (targetDiv.style.display !== "none") {
@@ -67,7 +63,6 @@ function Profile() {
         getUser();
     }, []);
 
-    console.log(user)
     const changeAge = async () => {
         axios.put(`https://localhost:7031/Register/age?age=${age}&id=${user.id}`,{},{ headers: {"Authorization" : `Bearer ${token}`} })
             .catch(error => {
@@ -75,7 +70,6 @@ function Profile() {
             })
         window.location.reload();
     }
-
 
     const changeNumber = async () => {
         axios.put(`https://localhost:7031/Register/phone?phone=${phoneNumber}&id=${user.id}`,{},{ headers: {"Authorization" : `Bearer ${token}`} })
@@ -92,7 +86,6 @@ function Profile() {
             })
         window.location.reload();
     }
-
 
     return(
         <div className={classes.background}>
@@ -142,7 +135,11 @@ function Profile() {
                     <div className = {classes.field}>
                         <h2><b>Phone number</b></h2>
                         <h4>{user.phoneNumber}</h4>
-                    </div>    
+                    </div>
+                    <div className = {classes.field}>
+                        <h2><b>How many bookings you have</b></h2>
+                        <DatePick/>
+                    </div>
                 </div>
             </div>    
         </div>    
