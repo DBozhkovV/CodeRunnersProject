@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from 'axios';
 import '../App.css'; 
 import { useNavigate } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const MyTable = () => {
     const navigate = useNavigate();
@@ -90,11 +91,11 @@ const MyTable = () => {
         <button className="button button1" onClick={nextDateChange}>Next date</button>
         <button className="rightbutton button1" onClick={navHome}>Go Back</button>
         </div>
-        <table>
-            <thead>
+        <table class="table table-hover table-primary">
+            <thead class="table-active">
                 <tr>
-                    <th>Desk number</th>
                     <th>Name</th>
+                    <th>Color</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -103,7 +104,7 @@ const MyTable = () => {
                    <tr key={booking.id}>
                         <td>{booking.name}</td>
                         <td>{booking.color}</td>
-                        <td><button type="button" onClick={() => getSeat(booking.id)}>Get</button> </td>
+                        <td><button className="buttonsmall" type="button" onClick={() => getSeat(booking.id)}>Get</button> </td>
                     </tr>
                 ))}
             </tbody>
