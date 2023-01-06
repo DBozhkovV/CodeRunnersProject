@@ -31,7 +31,7 @@
     "react-responsive-calendar": "^0.6.0",
     "react-router-dom": "^6.3.0",
     "react-router-loading": "^1.0.0",
-    "react-scripts": "^2.1.8",
+    "react-scripts": "^5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
